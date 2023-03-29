@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    background-color: #0064d5;
+    display: flex;
+    justify-content: center;
+    color: white;
+    transition: 0.5s;
+    touch-action: manipulation;
+}
+body.show{
+    justify-content: start;
+}
+.topp{
+    background: rgb(0, 44, 126);
+    border-radius: 10px;
+    padding: 5px;
+}
+main{
+    text-align: center;
+    margin-top: 20px;
+}
+main.show{
+    margin-left: 100px;
+}
+#cookieCounter{
+    color: rgb(255, 225, 0);
+    text-shadow: 1px 1px black;
+}
+#cookieDiv{
+    position: relative;
+    margin-top: 80px;
+}
+#cookie{
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+#cookie:active{
+    transform: scale(0.97);
+}
+
+/* Roterende hender */
+.hand, .hand2{
+    height: 15px;
+    position: absolute;
+    padding-left: 180px;
+    top: -50%;
+    transition: padding 0.2s;
+    transform-origin: 0;
+    animation: handsMove 1s infinite linear;
+}
+.hand2{
+    padding-left: 240px;
+}
+#hands, #hands2{
+    padding: 5px;
+    background-color: red;
+    border-radius: 5px;
+    position: absolute;
+    top: 48%;
+    left: 48%;
+    animation: handsRotate 100s infinite linear;
+    z-index: -1;
+}
+
+@keyframes handsRotate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.hand1.trykkes{
+    padding-left: 170px;
+}
+.hand2.trykkes{
+    padding-left: 230px;
+}
+
+/* Shop */
+#shop{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    background-color: rgb(0, 44, 126);
+    padding: 5px;
+    border-radius: 5px;
+    transition: transform 0.5s;
+}
+#shop.show{
+    transform: translateY(-575px) translateX(400px);
+}
+#shopTitle{
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 1px black;
+    cursor: pointer;
+    padding: 5px;
+    background: rgb(118, 118, 255);
+}
+#shopTitle:hover{
+    background: rgb(108, 108, 255);
+}
+#infoView{
+    font-size: 15px;
+    background: rgb(59, 59, 59);
+    border-radius: 5px;
+    padding: 5px;
+}
+#cpsTitle, #upgradeTitle{
+    background: linear-gradient(rgb(255, 255, 255), rgb(168, 168, 168));
+    padding-bottom: 3px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px black;
+    margin-block: 5px;
+}
+
+.cpsItem, .upgradeItem{
+    height: 50px;
+    width: 350px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-block: 10px;
+    border: 3px solid rgb(165, 215, 255);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.cpsItem:hover, .upgradeItem:hover{
+    scale: 1.01;
+}
+.cpsItem:active, .upgradeItem:active{
+    scale: 0.99;
+}
+.cpsItem > img, .upgradeItem > img{
+    width: 50px;
+}
+.titlePrice{
+    width: 150px;
+    text-align: left;
+    margin-left: 5px;
+}
+.titlePrice img{
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    margin-inline: 2px;
+}
+.itemTitle{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px black;
+    background-color: rgb(244, 244, 244);
+    border-radius: 0 0 5px 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+}
+.priceDiv{
+    display: flex;
+    align-items: center;
+}
+.price, .priceU{
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+.levelCps, .levelUpgrade{
+    display: flex;
+    gap: 5px;
+    text-align: left;
+    color: rgb(255, 225, 0);
+}
+.upgradeTxt{
+    color: rgb(0, 255, 170);
+    text-shadow: 1px 1px 1px black;
+}
+.leftTxt{
+    text-shadow: 1px 1px 1px black;
+}
+.rightNr{
+    color: rgb(0, 0, 0);
+}
+
+/* ----media---- */
+@media (max-width: 900px){
+    body.show{
+        justify-content: center;
+    }
+    main.show{
+        margin-left: 0;
+    }
+    #shop.show{
+        transform: translateY(-575px);
+        opacity: 0.9;
+    }
+}

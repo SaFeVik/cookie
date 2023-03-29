@@ -1,0 +1,45 @@
+[
+    {
+        "title": "Hand",
+        "price": 15,
+        "cps": 0.1,
+        "image": "arm.png"
+    },
+    {
+        "title": "Wood pick",
+        "price": 100,
+        "cps": 1,
+        "image": "woodPick.png"
+    },
+    {
+        "title": "Stone pick",
+        "price": 12000,
+        "cps": 8,
+        "image": "stonePick.png"
+    },
+    {
+        "title": "Iron pick",
+        "price": 130000,
+        "cps": 47,
+        "image": "ironPick.png"
+    },
+    {
+        "title": "Gold pick",
+        "price": 1400000,
+        "cps": 1400,
+        "image": "goldPick.png"
+    },
+    {
+        "title": "Diamond pick",
+        "price": 20000000,
+        "cps": 7800,
+        "image": "diamondPick.png"
+    },
+    {
+        "title": "Netherite pick",
+        "price": 330000000,
+        "cps": 44000,
+        "image": "netheritePick.png"
+    }
+]
+
