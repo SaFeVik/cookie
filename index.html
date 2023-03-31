@@ -8,22 +8,23 @@
 
     <link rel="stylesheet" href="cookie.css">
 </head>
-<body class="show">
-    <main class="show">
-        <div class="topp">
-            <h1 id="title">CookieClickers</h1>
-            <h2 id="cookieCounter">0 Cookies!</h2>
-            <h4 id="cpsCounter">Cps: </h4>
+<body>
+    <main>
+        <div class="toppCookie">
+            <div class="topp">
+                <h1 id="title">CookieClickers</h1>
+                <h2 id="cookieCounter">0 Cookies!</h2>
+                <h4 id="cpsCounter">Cps: </h4>
+            </div>
+            <div id="cookieDiv">
+                <div id="hands"></div>
+                <img src="./bilder/cookie.png" id="cookie">
+            </div>
         </div>
-        <div id="cookieDiv">
-            <div id="hands"></div>
-            <img src="./bilder/cookie.png" id="cookie">
-        </div>
-        <div id="shop" class="show">
-            <h1 id="shopTitle">Shop <span id="infoView">change view</span></h1>
+        <div id="shop">
+            <h1 id="shopTitle">Shop <span id="infoView">Click here to move shop</span></h1>
             <h2 id="upgradeTitle">Upgrade items</h2>
             <div id="upgradeItems">
-
                 <div class="upgradeItem">
                     <img src="./bilder/arms.png">
                     <div class="titlePrice">
@@ -45,14 +46,12 @@
                         <h4 class="upgradeTxt">More per click!</h4>
                     </div>
                 </div>
-
             </div>
             <h2 id="cpsTitle">Cps items</h2>
             <div id="cpsItems"></div>
         </div>
     </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <script src="cookie.js"></script>
 </body>
 </html>

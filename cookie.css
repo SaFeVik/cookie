@@ -8,27 +8,30 @@
 }
 body{
     background-color: #0064d5;
-    display: flex;
-    justify-content: center;
     color: white;
     transition: 0.5s;
     touch-action: manipulation;
+    user-select: none;
 }
-body.show{
-    justify-content: start;
+main{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px auto;
+    transition: transform 0.5s;
+    transform: translateX(-150px);
+}
+main.show{
+    transform: translateX(0px);
 }
 .topp{
     background: rgb(0, 44, 126);
     border-radius: 10px;
     padding: 5px;
 }
-main{
-    text-align: center;
-    margin-top: 20px;
-}
-main.show{
-    margin-left: 100px;
-}
+
+/* Cookie */
 #cookieCounter{
     color: rgb(255, 225, 0);
     text-shadow: 1px 1px black;
@@ -36,15 +39,25 @@ main.show{
 #cookieDiv{
     position: relative;
     margin-top: 80px;
+    height: 300px;
 }
 #cookie{
     width: 300px;
     height: 300px;
     cursor: pointer;
+    transition: transform 1s;
 }
 
-#cookie:active{
-    transform: scale(0.97);
+/* Antall cookies per klikk */
+.tapInfo{
+    font-size: 17px;
+    position: absolute;
+    pointer-events: none;
+    animation: tapInfoMove 1s linear;
+}
+
+@keyframes tapInfoMove{
+    100%{transform: translateY(-50px); opacity: 0;}
 }
 
 /* Roterende hender */
@@ -55,7 +68,6 @@ main.show{
     top: -50%;
     transition: padding 0.2s;
     transform-origin: 0;
-    animation: handsMove 1s infinite linear;
 }
 .hand2{
     padding-left: 240px;
@@ -65,7 +77,7 @@ main.show{
     background-color: red;
     border-radius: 5px;
     position: absolute;
-    top: 48%;
+    top: 49%;
     left: 48%;
     animation: handsRotate 100s infinite linear;
     z-index: -1;
@@ -87,14 +99,16 @@ main.show{
 #shop{
     display: flex;
     flex-direction: column;
+    position: absolute;
     margin-top: 100px;
     background-color: rgb(0, 44, 126);
     padding: 5px;
     border-radius: 5px;
     transition: transform 0.5s;
+    transform: translateY(-100px) translateX(310px);
 }
 #shop.show{
-    transform: translateY(-575px) translateX(400px);
+    transform: translateY(400px) translateX(-30px);
 }
 #shopTitle{
     margin-bottom: 10px;
@@ -112,6 +126,7 @@ main.show{
     border-radius: 5px;
     padding: 5px;
 }
+/* Kjøpeobjekter */
 #cpsTitle, #upgradeTitle{
     background: linear-gradient(rgb(255, 255, 255), rgb(168, 168, 168));
     padding-bottom: 3px;
@@ -119,17 +134,16 @@ main.show{
     text-shadow: 1px 1px 1px black;
     margin-block: 5px;
 }
-
 .cpsItem, .upgradeItem{
     height: 50px;
     width: 350px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    margin-block: 10px;
     border: 3px solid rgb(165, 215, 255);
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin: 10px auto;
 }
 .cpsItem:hover, .upgradeItem:hover{
     scale: 1.01;
@@ -185,16 +199,16 @@ main.show{
     color: rgb(0, 0, 0);
 }
 
-/* ----media---- */
-@media (max-width: 900px){
-    body.show{
-        justify-content: center;
+/* ----media queries---- */
+@media (max-width: 750px){
+    main{
+        transform: translateX(0px);
     }
-    main.show{
-        margin-left: 0;
+    #shop{
+        transform: translateX(-30px);
+        opacity: 0.9;
     }
     #shop.show{
-        transform: translateY(-575px);
-        opacity: 0.9;
+        opacity: 1;
     }
 }
