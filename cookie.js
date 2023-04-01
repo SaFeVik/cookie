@@ -248,11 +248,8 @@ async function tapInfo(e){
     cpsCounterEl.innerHTML = `Cps: ${(cps+clickCPS*tap).toFixed(1)}`
     // Lager p elementet som sier hvor mye cookies du får per klikk
     let tapInfoEl = document.createElement('p')
-    let audioEl = document.createElement('audio')
     // Legger til klassen "tapInfo" hos tapInfoEl
     tapInfoEl.classList.add('tapInfo')
-    audioEl.src = "mouseclick.mp3"
-    audioEl.play()
     // Legger til teksten som sier hvor mye cookies du får per klikk
     tapInfoEl.innerHTML = `+${tap}`
     // Setter posisjonen til tapInfoEl ved musens posisjon
@@ -260,7 +257,6 @@ async function tapInfo(e){
     tapInfoEl.style.top = `${e.offsetY-25}px`
     // Legger til tapInfoEl i cookieDivEl
     cookieDivEl.appendChild(tapInfoEl)
-    cookieDivEl.appendChild(audioEl)
     // Venter 1 sekund før tapInfoEl skal fjernes for å unngå at det blir for mange og holder styr på manuell clicks per second
     await sleep(1000)
     // Fjerner 1 fra manuell clicks per second
@@ -269,7 +265,6 @@ async function tapInfo(e){
     cpsCounterEl.innerHTML = `Cps: ${(cps+clickCPS*tap).toFixed(1)}`
     // Fjerner tapInfoEl fra cookieDivEl
     cookieDivEl.removeChild(tapInfoEl)
-    cookieDivEl.removeChild(audioEl)
 }
 
 // Aktiverer addCps hvert 100ms
