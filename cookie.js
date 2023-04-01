@@ -181,6 +181,11 @@ function makeItems(cpsItems){
             </div>
         </div>
         `
+        // Hvis level er 0 og det ikke er den første, legger den til klassen notKnown
+        let cpsItemEls = document.querySelectorAll('.cpsItem')
+        if(lvlArr[i] == 0 && lvlArr[i-1] == 0 && i>0){
+            cpsItemEls[i].classList.add('notKnown')
+        }
     }
 
     // Endrer cps, lvl og pris på itemet du kjøper
@@ -192,8 +197,9 @@ function makeItems(cpsItems){
         let priceEl = document.querySelectorAll('.price')[i]
         // Når du trykker på kjøpeobjekt kjøres denne funksjonen
         itemEl.onclick = function(){
+            let cpsItemEls = document.querySelectorAll('.cpsItem')
             // Sjekker om du har nok cookies
-            if(cookieCounter >= priceArr[i]){
+            if(cookieCounter >= priceArr[i] && cpsItemEls[i].classList.contains('notKnown') == false){
                 // Trekker fra prisen på cookiecounteren
                 cookieCounter -= priceArr[i]
                 // Legger til cps som man har kjøpt
@@ -214,6 +220,9 @@ function makeItems(cpsItems){
                 if(itemEl == document.querySelectorAll('.cpsItem')[0]){
                     newHand()
                 }
+                // Dette og det neste objektet vil miste notKnown klassen
+                cpsItemEls[i+1].classList.remove('notKnown')
+                cpsItemEls[i].classList.remove('notKnown')
             }
         }
     }
@@ -270,6 +279,22 @@ async function tapInfo(e){
 // Aktiverer addCps hvert 100ms
 setInterval(addCps, 100)
 function addCps(){
+    // Hvis prisen er for høy legges klassen "tooExpensive" til
+    let priceEls = document.querySelectorAll('.price')
+    // Sjekker på "Cps items"
+    for(let i=0; i<priceArr.length; i++){
+        if(cookieCounter < priceArr[i]){
+            priceEls[i].classList.add('tooExpensive')
+        }else{
+            priceEls[i].classList.remove('tooExpensive')
+        }
+    }
+    // Sjekker på "Upgrade items"
+    if(cookieCounter < priceU){
+        priceUEl.classList.add('tooExpensive')
+    }else{
+        priceUEl.classList.remove('tooExpensive')
+    }
     // Legger til så mange cookies som cps skal gi delt på 10 slik at den gir riktig mengde per sekund
     cookieCounter += cps/10
     // Oppdaterer cookies telleren

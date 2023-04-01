@@ -144,6 +144,7 @@ main.show{
     align-items: center;
     cursor: pointer;
     margin: 10px auto;
+    position: relative;
 }
 .cpsItem:hover, .upgradeItem:hover{
     scale: 1.01;
@@ -164,6 +165,7 @@ main.show{
     height: 15px;
     object-fit: contain;
     margin-inline: 2px;
+    z-index: 1;
 }
 .itemTitle{
     color: rgb(255, 255, 255);
@@ -181,6 +183,11 @@ main.show{
     color: rgb(0, 0, 0);
     letter-spacing: 1px;
     text-shadow: none;
+    z-index: 1;
+}
+.tooExpensive{
+    color: rgb(255, 0, 0);
+    text-shadow: 0.5px 0.5px 0.5px black;
 }
 .levelCps, .levelUpgrade{
     display: flex;
@@ -197,6 +204,25 @@ main.show{
 }
 .rightNr{
     color: rgb(0, 0, 0);
+}
+/* Ikke kommet til cps oppgraderingen ennå */
+.notKnown{
+    opacity: 0.7;
+}
+.notKnown::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgb(167, 167, 167);
+}
+
+.notKnown::after{
+    position: absolute;
+    content: "? ? ?";
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    left: 60%; /* Move the content to the middle of the box */
 }
 
 /* ----media queries---- */
